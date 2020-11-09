@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challan Form</title>
+</head>
+<body style="display: flex;justify-content:center">
+    <div style="width:50%; margin-top: 40px;">
+    <h1 style="text-align:center">UBL JING BRANCH</h1>
+    <h3 style="text-align:center">A/C No:04820201006367 SAHARA WELFARE SOCIETY</h3>
+    <h2 style="text-align:center">Bank Copy</h2>
+    <p  style="text-align:right; margin-right: 20px; margin-top: 40px;"><b>Date: </b> {{this.users.date}}</p>
+    <table style="margin-left: 40px;">
+        <tbody >
+        <tr style="border: 1px solid black;">
+            <td style="border:  1px solid black;"><b>Name:</b></td>
+            <td style="border:  1px solid black; width: 82%;">{{this.users.name}}</td>
+        </tr>
+        <tr>
+            <td style="border:  1px solid black;"><b>Father Name:</b></td>
+            <td style="border:  1px solid black;">{{this.users.fatherName}}</td>
+        </tr>
+        <tr>
+            <td style=" border:  1px solid black;"><b>Class:</b></td>
+            <td style="border:  1px solid black;">{{this.users.currentClass}}</td>
+        </tr>
+        <tr>
+            <td style="border:  1px solid black;"><b>Gr No:</b></td>
+            <td style="border:  1px solid black;">{{this.users.gr}}</td>
+        </tr>
+        <tr>
+       <td style="border:  1px solid black;"><b>Fee:</b></td> 
+       <td style="border:  1px solid black;">{{this.users.fee}}</td>
+       </tr>
+       <tr>
+        <td style="border:  1px solid black;"><b>Fee In Words:</b></td>
+        <td style="border:  1px solid black;">{{this.users.inWords}}</td>
+    </tr>
+</tbody>
+    </table>
+  
+        <!-- <h2 style="display: inline-block;">Total</h2> -->
+        <table style="display: flex;justify-content: space-between;margin-top: 60px;margin-left: 40px;">
+            <tr>
+                <td style="width:40%;text-align: center;border-top:1px solid black">Bank Cashier</td>
+                <td style="width:40%;text-align: center;border-top:1px solid black">Bank Depositer</td>
+                <td style="width:40%;text-align: right;border-top:1px solid black">SWS accountant
+                </td>
+            </tr>
+    </table>
+    </div>
+</body>
+</html>
