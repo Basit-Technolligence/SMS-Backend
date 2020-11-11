@@ -16,6 +16,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/',(req,res)=>{
+  res.send('SCHOOL MANAGEMENT SYSTEM ADMIN');
+});
 app.use(studentRouter);
 app.use(expenseRouter);
 app.use(teacherRoutes);
