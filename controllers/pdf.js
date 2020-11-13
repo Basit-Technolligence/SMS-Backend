@@ -15,14 +15,12 @@ const createPDF= (data)=>{
     };
 
     var users = data;
-    const homeDir = require('os').homedir();
-    const desktopDir = `${homeDir}/Desktop`;
     var document = {
         html: html,
         data: {
             users: users
         },
-        path: `..\\${desktopDir}\\School Challans\\YEAR_${new Date().getFullYear()}\\${data.name}_${data.currentClass}_Gr no. ${data.gr}.pdf`
+        path: `/challans/${data.name}_${data.currentClass}_Gr no. ${data.gr}.pdf`
     };
     pdf.create(document, options)
         .then(res => {
@@ -34,6 +32,7 @@ const createPDF= (data)=>{
             console.error(error);
             return "ERROR :";
         });
+        return document
     }catch(e){
         console.log(e)
     }
