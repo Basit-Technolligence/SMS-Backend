@@ -15,12 +15,13 @@ const createPDF= (data)=>{
     };
 
     var users = data;
+    const homeDir = require('os').homedir();
     var document = {
         html: html,
         data: {
             users: users
         },
-        path: `/challans/${data.name}_${data.currentClass}_Gr no. ${data.gr}.pdf`
+        path: `${homeDir}/challans/${data.name}_${data.currentClass}_Gr no. ${data.gr}.pdf`
     };
     pdf.create(document, options)
         .then(res => {
