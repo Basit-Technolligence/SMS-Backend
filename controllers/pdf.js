@@ -22,7 +22,7 @@ const createPDF= (data)=>{
         data: {
             users: users
         },
-        path: `C:\\Users\\${process.env.USERNAME}\\Downloads\\School Challans\\YEAR_${new Date().getFullYear()}\\${data.name}_${data.currentClass}_Gr no. ${data.gr}.pdf`
+        path: `..\\${desktopDir}\\School Challans\\YEAR_${new Date().getFullYear()}\\${data.name}_${data.currentClass}_Gr no. ${data.gr}.pdf`
     };
     pdf.create(document, options)
         .then(res => {
