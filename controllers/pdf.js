@@ -15,12 +15,14 @@ const createPDF= (data)=>{
     };
 
     var users = data;
+    const homeDir = require('os').homedir();
+    const desktopDir = `${homeDir}/Desktop`;
     var document = {
         html: html,
         data: {
             users: users
         },
-        path: `${process.env.HOME}/Desktop/${data.name}_${data.gr}_challan.pdf`
+        path: `${desktopDir}/${data.name}_${data.gr}_challan.pdf`
     };
     pdf.create(document, options)
         .then(res => {
