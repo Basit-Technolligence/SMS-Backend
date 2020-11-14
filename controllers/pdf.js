@@ -1,7 +1,7 @@
 var pdf =  require("pdf-creator-node");
 var fs =  require('fs');
 var inWords = require('./inWords')
-const createPDF= (data)=>{
+const createPDF= (data,response)=>{
     try{    
         data.inWords = inWords(data.fee.substring(4,data.fee.length));
         data.date = new Date();
@@ -21,17 +21,15 @@ const createPDF= (data)=>{
         data: {
             users: users
         },
-        path: `${homeDir}/challans/${data.name}_${data.currentClass}_Gr no. ${data.gr}.pdf`
+        path: `./challans/${data.name}_${data.currentClass}_Gr no. ${data.gr}.pdf`
     };
     pdf.create(document, options)
-        .then(res => {
-           console.log(res);
-           console.log('doc',document.data)
-           return "DONE";
+        .then((res) => {
+           response.send(`${data.name}_${data.currentClass}_Gr no. ${data.gr}.pdf`);
         })
         .catch(error => {
             console.error(error);
-            return "ERROR :";
+            response.send( "ERROR");
         });
         return document
     }catch(e){

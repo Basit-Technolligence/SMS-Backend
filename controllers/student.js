@@ -1,6 +1,7 @@
 const { response } = require("express");
 const db = require("../database/admin");
 const createPDF = require('./pdf')
+const fs = require('fs');
 
 const addStudent = async (req, res) => {
   try {
@@ -56,10 +57,26 @@ const deleteStudent = async (req, res) => {
 
 const exportPDF = async (req,res)=>{
   try{
-    await createPDF(req.body);
-    res.send("DONE")
+    await createPDF(req.body,res);
+    // res.send("DONE")
   }catch(e){
     res.send(e);
+  }
+}
+const downloadPDF = async (req,res)=>{
+  try{
+    const file = __dirname+'\\challans\\'+req.params.fileName;
+    res.download(file,req.params.fileName, (err)=>{
+      if(err) console.log('error in sending file')
+    });
+    // const src = fs.createReadStream('./challans/'+file);
+    // console.log('src',src)
+    // src.pipe(res);
+    console.log('file',file);
+    // res.download('./challans/'+file,file)
+    // res.end(Buffer.from('./challans/'+file))
+  }catch(e){
+    res.send(e)
   }
 }
 
@@ -69,3 +86,4 @@ exports.getStudent = getStudent;
 exports.updateStudent = updateStudent;
 exports.deleteStudent = deleteStudent;
 exports.exportPDF = exportPDF;
+exports.downloadPDF = downloadPDF;
