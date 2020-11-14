@@ -65,9 +65,9 @@ const exportPDF = async (req,res)=>{
 }
 const downloadPDF = async (req,res)=>{
   try{
-    const file = __dirname+'\\challans\\'+req.params.fileName;
+    const file = __dirname+'\\..\\challans\\'+req.params.fileName;
     res.download(file,req.params.fileName, (err)=>{
-      if(err) console.log('error in sending file')
+      if(err) console.log('error in sending file', err)
     });
     // const src = fs.createReadStream('./challans/'+file);
     // console.log('src',src)
