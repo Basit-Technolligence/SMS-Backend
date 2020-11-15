@@ -1,7 +1,6 @@
 const { response } = require("express");
 const db = require("../database/admin");
 const createPDF = require('./pdf')
-var path = require('path');
 
 const addStudent = async (req, res) => {
   try {
@@ -65,9 +64,7 @@ const exportPDF = async (req,res)=>{
 }
 const downloadPDF = async (req,res)=>{
   try{
-    console.log('path',path)
-
-    const file = path.resolve(__dirname +'\\..\\challans\\'+req.params.fileName);
+    const file = __dirname +'\\..\\challans\\'+req.params.fileName;
     res.download(file,req.params.fileName, (err)=>{
       if(err) console.log('error in sending file', err)
     });
